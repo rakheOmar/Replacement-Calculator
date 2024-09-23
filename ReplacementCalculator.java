@@ -17,7 +17,6 @@ public class ReplacementCalculator {
         frame = new JFrame("Replacement Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        
 
         String[] options = { "One Machine", "Two Machines" };
         int choice = JOptionPane.showOptionDialog(frame, "Select number of machines", "Machine Selection",
@@ -74,6 +73,22 @@ public class ReplacementCalculator {
                     interestField.setVisible(false);
                     interestLabel.setVisible(false);
                 }
+            }
+        });
+
+        JButton clear = new JButton("Clear");
+
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                capitalField.setText("");
+                resaleField.setText("");
+                yearsField.setText("");
+                maintenanceField.setText("");
+                interestField.setText("");
+                constResaleValue.setSelected(false);
+                interestCheck.setSelected(false);
+                tableModel1.setRowCount(0);
             }
         });
 
@@ -185,7 +200,7 @@ public class ReplacementCalculator {
         input.add(new JLabel());
         input.add(interestLabel);
         input.add(interestField);
-        input.add(new JLabel());
+        input.add(clear);
         input.add(submit);
 
         String[] columns = { "Year", "Resale Value", "Maintenance Cost", "Cummulative Maintenance Cost", "Total Cost",
@@ -245,6 +260,27 @@ public class ReplacementCalculator {
                 }
             }
         });
+
+        JButton clear = new JButton("Clear");
+
+        clear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                capitalField1.setText("");
+                resaleField1.setText("");
+                yearsField1.setText("");
+                maintenanceField1.setText("");
+                capitalField2.setText("");
+                resaleField2.setText("");
+                yearsField2.setText("");
+                maintenanceField2.setText("");
+                constResaleValue1.setSelected(false);
+                constResaleValue2.setSelected(false);
+                tableModel1.setRowCount(0);
+                tableModel2.setRowCount(0);
+            }
+        });
+
         JButton submit = new JButton("Submit");
 
         submit.addActionListener(new ActionListener() {
@@ -370,7 +406,7 @@ public class ReplacementCalculator {
         input.add(new JLabel());
         input.add(new JLabel());
         input.add(new JLabel());
-        input.add(new JLabel());
+        input.add(clear);
         input.add(new JLabel());
         input.add(submit);
 
@@ -395,6 +431,7 @@ public class ReplacementCalculator {
         frame.setVisible(true);
 
     }
+
     public static void main(String[] args) {
         new ReplacementCalculator();
     }
